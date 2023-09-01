@@ -56,7 +56,7 @@ public class DemoTest {
 //         System.out.println("<<<<<<<<<<<<<<<<<<<<<<Set androidCapabilities Done >>>>>>>>>>>>>>>>>>>>");
 
 
-  
+    }
 
     @Test
     public void test_Appium() {
