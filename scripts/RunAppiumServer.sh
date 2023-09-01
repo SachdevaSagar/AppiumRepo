@@ -15,7 +15,7 @@ appium -v
 appium &
 
 # Wait for Appium to fully start (you may need to adjust the sleep duration)
-sleep 10  # Adjust as needed
+sleep 15  # Adjust as needed
 
 # Optionally, you can add more commands to run your tests here
 
