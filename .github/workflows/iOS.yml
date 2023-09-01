@@ -25,7 +25,7 @@ jobs:
     - name: List iOS Devices & Platforms
       run: |
         xcrun simctl list
-    - name: Install iOS 11.4 Runtime
+    - name: Install iOS 14.2 Runtime
       run: |
         gem install xcode-install
         xcversion simulators --install='iOS 14.2'
