@@ -35,7 +35,6 @@ jobs:
         DEVICEUUID=`cat deviceid.txt`          
         echo $DEVICEUUID        
         xcrun simctl boot $DEVICEUUID
-        shell: bash
     - name: Run Test
       run: ./gradlew test --info
     - name: Upload test report
