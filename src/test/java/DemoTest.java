@@ -25,7 +25,7 @@ public class DemoTest {
 
         DesiredCapabilities iosCapabilities = new DesiredCapabilities();
         iosCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
-        iosCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "14.2");
+        iosCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "15.4");
         iosCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhoneX");
         System.out.println("<<<<<<<<<<<<<<<<<<<<<<Set .app file>>>>>>>>>>>>>>>>>>>>");
         iosCapabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir")+"/apps/Runner.app");
