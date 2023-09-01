@@ -22,21 +22,21 @@ jobs:
         chmod +x ./scripts/RunAppiumServer.sh
         ./scripts/RunAppiumServer.sh
       shell: bash
-    # - name: Install iOS 15.2 Runtime
-    #   run: |
-    #       gem install xcode-install
-    #       xcversion simulators --install='iOS 15.2'
-    # - name: Create and Run iOS Emulator - iPhoneX on iOS 15.2, Update default appium config for iOS
-    #   run: |
-    #     xcrun simctl create TestiPhoneX com.apple.CoreSimulator.SimDeviceType.iPhone-X com.apple.CoreSimulator.SimRuntime.iOS-15-2 > deviceid.txt
-    #     DEVICEUUID=`cat deviceid.txt`          
-    #     echo $DEVICEUUID        
-    #     xcrun simctl boot $DEVICEUUID 
+    - name: Install iOS 15.2 Runtime
+      run: |
+          gem install xcode-install
+          xcversion simulators --install='iOS 15.2'
+    - name: Create and Run iOS Emulator - iPhoneX on iOS 15.2, Update default appium config for iOS
+      run: |
+        xcrun simctl create TestiPhoneX com.apple.CoreSimulator.SimDeviceType.iPhone-X com.apple.CoreSimulator.SimRuntime.iOS-15-2 > deviceid.txt
+        DEVICEUUID=`cat deviceid.txt`          
+        echo $DEVICEUUID        
+        xcrun simctl boot $DEVICEUUID 
 
-    # - name: Run Test
-    #   run: ./gradlew test --info
-    # - name: Upload test report
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: unit_test_report
-    #     path: /Users/runner/work/-AppiumRepo/
+    - name: Run Test
+      run: ./gradlew test --info
+    - name: Upload test report
+      uses: actions/upload-artifact@v2
+      with:
+        name: unit_test_report
+        path: /Users/runner/work/-AppiumRepo/
