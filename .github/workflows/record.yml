@@ -13,13 +13,13 @@ jobs:
       - name: Start Video Recording
         run: |
           # Add your command to start video recording here
-          # Example: ffmpeg -f avfoundation -i "0" -r 30 /Users/runner/work/recorded-video.mp4 &
+          ffmpeg -f avfoundation -i "0" -r 30 /Users/runner/work/recorded-video.mp4 &
           sleep 30  # Sleep for 30 seconds to record video
 
       - name: Stop Video Recording
         run: |
           # Add your command to stop video recording here
-          # Example: pkill ffmpeg  # Terminate the ffmpeg process
+          pkill ffmpeg  # Terminate the ffmpeg process
         continue-on-error: true  # Continue even if the pkill command fails
 
       - name: Upload Video Artifact
