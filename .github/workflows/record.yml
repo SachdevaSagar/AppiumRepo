@@ -14,7 +14,7 @@ jobs:
         run: |
           # Add your command to start video recording here
           # Example: ffmpeg -f avfoundation -i "0" -r 30 output.mp4 &
-          sleep 10  # Sleep for 10 seconds to record video
+          sleep 30  # Sleep for 10 seconds to record video
 
       - name: Stop Video Recording
         run: |
