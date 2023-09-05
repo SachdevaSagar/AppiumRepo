@@ -10,11 +10,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install ffmpeg
+        run: |
+          echo "Installing ffmpeg..."
+          brew install ffmpeg
+
+      - name: Get ffmpeg version
+        id: ffmpeg-version
+        run: |
+          ffmpeg_version=$(ffmpeg -version | grep "ffmpeg version" | awk '{print $3}')
+          echo "ffmpeg version: $ffmpeg_version"
+          echo "::set-output name=ffmpeg_version::$ffmpeg_version"
+
       - name: Start Video Recording
         run: |
           # Add your command to start video recording here
           ffmpeg -f avfoundation -i "0" -r 30 /Users/runner/work/recorded-video.mp4 &
-          sleep 30  # Sleep for 30 seconds to record video
+          sleep 30  # Sleep for 10 seconds to record video
 
       - name: Stop Video Recording
         run: |
