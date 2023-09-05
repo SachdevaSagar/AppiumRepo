@@ -1,0 +1,29 @@
+name: Video Recording Workflow
+
+on: [push]
+
+jobs:
+  record_video:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Start Video Recording
+        run: |
+          # Add your command to start video recording here
+          # Example: ffmpeg -f avfoundation -i "0" -r 30 output.mp4 &
+          sleep 10  # Sleep for 10 seconds to record video
+
+      - name: Stop Video Recording
+        run: |
+          # Add your command to stop video recording here
+          # Example: pkill ffmpeg  # Terminate the ffmpeg process
+        continue-on-error: true  # Continue even if the pkill command fails
+
+      - name: Upload Video Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: recorded-video
+          path: path/to/recorded-video.mp4
