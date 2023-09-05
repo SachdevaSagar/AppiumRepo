@@ -13,8 +13,8 @@ jobs:
       - name: Start Video Recording
         run: |
           # Add your command to start video recording here
-          # Example: ffmpeg -f avfoundation -i "0" -r 30 output.mp4 &
-          sleep 30  # Sleep for 10 seconds to record video
+          # Example: ffmpeg -f avfoundation -i "0" -r 30 /Users/runner/work/recorded-video.mp4 &
+          sleep 30  # Sleep for 30 seconds to record video
 
       - name: Stop Video Recording
         run: |
@@ -26,4 +26,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: recorded-video
-          path: path/to/recorded-video.mp4
+          path: /Users/runner/work/recorded-video.mp4
