@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Define the path where you want to save the recording
+RECORDING_PATH="path/to/your/recordings"
+
+# Start the iOS simulator (you might need to adjust the device name)
+open -a Simulator --args -CurrentDeviceUDID "your_device_udid"
+
+# Wait for the simulator to launch (you might need to adjust the sleep time)
+sleep 10
+
+# Start recording the screen using QuickTime Player
+echo "Recording started..."
+xcrun simctl io booted recordVideo "$RECORDING_PATH/simulator_recording.mov"
+
+# Perform your interactions with the simulator (e.g., launching the app, clicking buttons)
+
+# When you're done with interactions, stop the recording
+echo "Recording stopped..."
+xcrun simctl io booted recordVideo --stop
+
+# Move the recorded video to the desired location
+mv "$HOME/Library/Developer/CoreSimulator/Devices/your_device_udid/data/Containers/Data/Application/app_container/simulator_recording.mov" "$RECORDING_PATH/simulator_recording.mov"
+
+# Upload the recording to GitHub Actions as an artifact
+echo "Uploading recording to GitHub Actions..."
+echo "::set-env name=SIMULATOR_RECORDING_PATH::$RECORDING_PATH/simulator_recording.mov"
